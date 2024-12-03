@@ -1,11 +1,13 @@
 title: Shivam Patel
 email: shivp8601@gmail.com
 description: Computer Engineering Graduate specializing in Machine Learning and Full-Stack Development
-baseurl: ""
-url: "https://shivam13602.github.io/Portfolio"
+baseurl: "/Portfolio"
+url: "https://shivam13602.github.io"
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
@@ -28,3 +30,5 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - README.md
+  - .gitignore
