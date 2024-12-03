@@ -1,0 +1,30 @@
+title: Shivam Patel
+email: shivp8601@gmail.com
+description: Computer Engineering Graduate specializing in Machine Learning and Full-Stack Development
+baseurl: ""
+url: "https://shivam13602.github.io/Portfolio"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Social links
+github_username: Shivam13602
+linkedin_username: shivam-patel-963803232
+
+# Collections
+collections:
+  projects:
+    output: true
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
