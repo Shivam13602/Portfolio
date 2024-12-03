@@ -10,10 +10,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Theme settings
-theme: jekyll-theme-minimal
-remote_theme: pages-themes/minimal@v0.2.0
-
 # Social links
 github_username: Shivam13602
 linkedin_username: shivam-patel-963803232
