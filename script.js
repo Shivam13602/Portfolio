@@ -1,47 +1,27 @@
-// Initialize AOS (Animate On Scroll)
+// Initialize AOS
 AOS.init({
     duration: 1000,
-    once: true,
-    offset: 100
+    once: true
 });
 
-// Particle.js Configuration
+// Initialize Particles.js
 particlesJS('particles-js', {
     particles: {
-        number: {
-            value: 80,
-            density: {
-                enable: true,
-                value_area: 800
-            }
-        },
-        color: {
-            value: '#64ffda'
-        },
-        shape: {
-            type: 'circle'
-        },
-        opacity: {
-            value: 0.5,
-            random: false,
-            anim: {
-                enable: false
-            }
-        },
-        size: {
-            value: 3,
-            random: true
-        },
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#64ffda' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
         line_linked: {
             enable: true,
             distance: 150,
             color: '#64ffda',
-            opacity: 0.2,
+            opacity: 0.4,
             width: 1
         },
         move: {
             enable: true,
-            speed: 2,
+            speed: 6,
             direction: 'none',
             random: false,
             straight: false,
@@ -52,165 +32,17 @@ particlesJS('particles-js', {
     interactivity: {
         detect_on: 'canvas',
         events: {
-            onhover: {
-                enable: true,
-                mode: 'grab'
-            },
-            onclick: {
-                enable: true,
-                mode: 'push'
-            },
+            onhover: { enable: true, mode: 'repulse' },
+            onclick: { enable: true, mode: 'push' },
             resize: true
         },
         modes: {
-            grab: {
-                distance: 140,
-                line_linked: {
-                    opacity: 1
-                }
-            },
-            push: {
-                particles_nb: 4
-            }
+            repulse: { distance: 100, duration: 0.4 },
+            push: { particles_nb: 4 }
         }
     },
     retina_detect: true
 });
-
-// Typing animation for hero section
-const text = document.querySelector('.typing-text');
-const words = ['Computer Engineering Student', 'ML Enthusiast', 'Developer'];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function type() {
-    const currentWord = words[wordIndex];
-    
-    if (isDeleting) {
-        text.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        text.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-    }
-
-    if (!isDeleting && charIndex === currentWord.length) {
-        isDeleting = true;
-        setTimeout(type, 2000);
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        setTimeout(type, 500);
-    } else {
-        setTimeout(type, isDeleting ? 50 : 100);
-    }
-}
-
-// Start typing animation
-type();
-
-// Mobile Menu Toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-let isMenuOpen = false;
-
-menuToggle.addEventListener('click', () => {
-    isMenuOpen = !isMenuOpen;
-    navLinks.style.display = isMenuOpen ? 'flex' : 'none';
-    navLinks.style.flexDirection = 'column';
-    navLinks.style.position = 'absolute';
-    navLinks.style.top = '100%';
-    navLinks.style.left = '0';
-    navLinks.style.width = '100%';
-    navLinks.style.background = 'var(--card-background)';
-    navLinks.style.padding = '1rem';
-    navLinks.style.backdropFilter = 'blur(10px)';
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (isMenuOpen && !e.target.closest('.navbar')) {
-        isMenuOpen = false;
-        navLinks.style.display = 'none';
-    }
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        // Close mobile menu if open
-        if (isMenuOpen) {
-            isMenuOpen = false;
-            navLinks.style.display = 'none';
-        }
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Navbar background change on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(10, 25, 47, 0.95)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
-    } else {
-        navbar.style.background = 'rgba(10, 25, 47, 0.85)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-// Initialize skill level bars
-function initializeSkillLevels() {
-    const skillLevels = document.querySelectorAll('.skill-level');
-    skillLevels.forEach(skill => {
-        const level = skill.dataset.level;
-        skill.style.setProperty('--level', `${level}%`);
-    });
-}
-
-// Initialize skill levels when the skills section comes into view
-const skillsSection = document.querySelector('.skills');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            initializeSkillLevels();
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-observer.observe(skillsSection);
-
-// Form submission handling
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Here you would typically send the form data to a server
-        // For now, we'll just log it and show a success message
-        console.log('Form submitted:', formData);
-        
-        // Show success message
-        alert('Thank you for your message! I will get back to you soon.');
-        
-        // Reset form
-        contactForm.reset();
-    });
-}
 
 // Add hover effect to project cards
 document.querySelectorAll('.project-card').forEach(card => {
@@ -222,5 +54,81 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'translateY(0)';
         card.style.borderColor = 'var(--glassmorphism)';
+    });
+});
+
+// Avatar Animation
+const avatar = document.querySelector('.avatar-3d');
+const colors = [
+    ['#64ffda', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#D4A5A5'],  // Default
+    ['#FF6B6B', '#FFA07A', '#FFD700', '#FFA500', '#FF8C00', '#FF4500'],  // Warm
+    ['#4ECDC4', '#00CED1', '#20B2AA', '#48D1CC', '#40E0D0', '#7FFFD4'],  // Cool
+    ['#9B59B6', '#8E44AD', '#9B59B6', '#8E44AD', '#9B59B6', '#8E44AD'],  // Purple
+    ['#2ECC71', '#27AE60', '#2ECC71', '#27AE60', '#2ECC71', '#27AE60']   // Green
+];
+
+let currentColorScheme = 0;
+const animations = ['spin-x', 'spin-y', 'spin-z'];
+let lastAnimation = '';
+
+avatar.addEventListener('click', () => {
+    // Remove previous animation class
+    animations.forEach(anim => avatar.classList.remove(anim));
+    
+    // Select new random animation (different from last one)
+    let newAnimation;
+    do {
+        newAnimation = animations[Math.floor(Math.random() * animations.length)];
+    } while (newAnimation === lastAnimation);
+    
+    lastAnimation = newAnimation;
+    
+    // Apply new animation
+    avatar.classList.add(newAnimation);
+    
+    // Change color scheme
+    currentColorScheme = (currentColorScheme + 1) % colors.length;
+    const faces = document.querySelectorAll('.avatar-face');
+    faces.forEach((face, index) => {
+        face.style.background = colors[currentColorScheme][index];
+    });
+    
+    // Remove animation class after it completes
+    setTimeout(() => {
+        avatar.classList.remove(newAnimation);
+    }, 1000);
+});
+
+// Navigation frame timing
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Show full navigation frame initially
+    navbar.classList.add('with-background');
+
+    // After 2 seconds, switch to minimal mode
+    setTimeout(() => {
+        navbar.classList.remove('with-background');
+        navbar.classList.add('minimal');
+        navLinks.classList.add('minimal');
+    }, 2000);
+
+    // Show background on scroll
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scrolling down and not at top
+            navbar.classList.add('with-background');
+            navLinks.classList.remove('minimal');
+        } else if (scrollTop <= 100) {
+            // At or near top
+            navbar.classList.remove('with-background');
+            navbar.classList.add('minimal');
+            navLinks.classList.add('minimal');
+        }
+        lastScrollTop = scrollTop;
     });
 }); 
