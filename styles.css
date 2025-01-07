@@ -41,15 +41,26 @@ body {
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     padding: 1rem 2rem;
-    background: rgba(10, 25, 47, 0.85);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.with-background {
+    background: var(--card-background);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glassmorphism);
+}
+
+.navbar.minimal {
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
 }
 
 .nav-logo {
@@ -83,16 +94,19 @@ body {
 
 .nav-links {
     display: flex;
-    list-style: none;
     gap: 2rem;
     align-items: center;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: var(--heading-color);
-    transition: all 0.3s ease;
-    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-links.minimal a {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .nav-links a::after {
@@ -1008,4 +1022,114 @@ footer {
 
 .stat:hover {
     animation: float 3s ease-in-out infinite;
+}
+
+/* Add 3D Avatar Styles */
+.avatar-3d {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.avatar-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--dark-background);
+    transition: background 0.3s ease;
+}
+
+.avatar-face.front { transform: translateZ(25px); background: #64ffda; }
+.avatar-face.back { transform: translateZ(-25px) rotateY(180deg); background: #FF6B6B; }
+.avatar-face.right { transform: translateX(25px) rotateY(90deg); background: #4ECDC4; }
+.avatar-face.left { transform: translateX(-25px) rotateY(-90deg); background: #45B7D1; }
+.avatar-face.top { transform: translateY(-25px) rotateX(90deg); background: #96CEB4; }
+.avatar-face.bottom { transform: translateY(25px) rotateX(-90deg); background: #D4A5A5; }
+
+/* Avatar Animations */
+@keyframes spin-x {
+    from { transform: rotateX(0); }
+    to { transform: rotateX(360deg); }
+}
+
+@keyframes spin-y {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(360deg); }
+}
+
+@keyframes spin-z {
+    from { transform: rotateZ(0); }
+    to { transform: rotateZ(360deg); }
+}
+
+.spin-x { animation: spin-x 1s ease; }
+.spin-y { animation: spin-y 1s ease; }
+.spin-z { animation: spin-z 1s ease; }
+
+/* Updated Navigation Styles */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--heading-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-links.minimal a {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a {
+    color: var(--heading-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-links.minimal a {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 } 
