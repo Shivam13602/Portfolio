@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam Patel - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Particle.js for futuristic background -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Particle.js Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <div class="avatar">SP</div>
+            <div class="logo-hover">Shivam Patel</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="resume-btn"><a href="assets/Shivam_Patel_Resume.pdf" target="_blank" class="btn-primary">Resume</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-text">
+                <h1>Hi, I'm <span class="highlight">Shivam Patel</span></h1>
+                <p class="typing-text">Computer Engineering Student | ML Enthusiast | Developer</p>
+                <p class="hero-description">Transforming ideas into innovative solutions through code and creativity</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/shivam-patel-963803232/" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Shivam13602" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+                <a href="mailto:shivp8601@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 data-aos="fade-down">About Me</h2>
+        <div class="about-content" data-aos="fade-up">
+            <div class="about-text">
+                <p>I'm a Computer Engineering student pursuing my Master's in Applied Computer Science at Dalhousie University. With a passion for AI and Machine Learning, I love exploring new technologies and solving complex problems.</p>
+                <p>My journey in technology has been driven by curiosity and innovation. I specialize in developing AI-powered solutions and have a keen interest in creating scalable applications that make a difference.</p>
+                <p>When I'm not coding, you can find me immersed in video games, which fuel my creativity and problem-solving skills. I believe in the power of technology to make a positive impact on the world.</p>
+                <div class="about-stats">
+                    <div class="stat" data-aos="zoom-in">
+                        <h3>2+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat" data-aos="zoom-in" data-aos-delay="200">
+                        <h3>10+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat" data-aos="zoom-in" data-aos-delay="400">
+                        <h3>5+</h3>
+                        <p>Technologies Mastered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <h2 data-aos="fade-down">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>IELTS Trainer</h3>
+                    <h4>Just Abroad | Feb 2024 - Jul 2024</h4>
+                    <ul>
+                        <li>Developed personalized study plans for 53 students, resulting in an average band score improvement of 1.0</li>
+                        <li>Enhanced student engagement by 30% through interactive teaching methods and multimedia resources</li>
+                        <li>Implemented data-driven assessment techniques to track student progress</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>IT System Developer Intern</h3>
+                    <h4>VONG, Omysha organization | Jan 2024 - Mar 2024</h4>
+                    <ul>
+                        <li>Engineered custom appraisal system using ERPNext, improving HR efficiency by 40%</li>
+                        <li>Increased employee engagement rates by 35% through implementation of user-friendly interfaces</li>
+                        <li>Collaborated with cross-functional teams to optimize system performance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Machine Learning Research Assistant</h3>
+                    <h4>Dalhousie University | Sep 2023 - Present</h4>
+                    <ul>
+                        <li>Conducting research on advanced ML algorithms for pattern recognition</li>
+                        <li>Developing innovative solutions using Python and TensorFlow</li>
+                        <li>Publishing research findings in academic journals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 data-aos="fade-down">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-content">
+                    <h3>AI-Powered Face Recognition System</h3>
+                    <p>A deep learning-based face recognition system using Python and OpenCV, capable of real-time face detection and recognition with high accuracy.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>TensorFlow</span>
+                        <span>OpenCV</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Shivam13602/FaceRecognition" target="_blank" class="btn-secondary">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-content">
+                    <h3>Smart Healthcare Management System</h3>
+                    <p>A comprehensive healthcare management system featuring patient records, appointment scheduling, and ML-powered diagnosis assistance tools.</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Shivam13602/HealthcareSystem" target="_blank" class="btn-secondary">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-content">
+                    <h3>Predictive Analytics Dashboard</h3>
+                    <p>An interactive dashboard for business analytics featuring real-time data visualization and predictive modeling capabilities.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>React</span>
+                        <span>AWS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Shivam13602/AnalyticsDashboard" target="_blank" class="btn-secondary">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with enhanced visualization -->
+    <section id="skills" class="skills">
+        <h2 data-aos="fade-down">Technical Expertise</h2>
+        <div class="skills-container">
+            <div class="skills-category" data-aos="zoom-in">
+                <h3>Programming & Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                        <div class="skill-level" data-level="90"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                        <div class="skill-level" data-level="85"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-code"></i>
+                        <span>C/C++</span>
+                        <div class="skill-level" data-level="80"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category" data-aos="zoom-in" data-aos-delay="200">
+                <h3>Frameworks & Tools</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                        <div class="skill-level" data-level="85"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-node"></i>
+                        <span>Node.js</span>
+                        <div class="skill-level" data-level="80"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>MongoDB</span>
+                        <div class="skill-level" data-level="75"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category" data-aos="zoom-in" data-aos-delay="400">
+                <h3>Machine Learning & AI</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fas fa-brain"></i>
+                        <span>TensorFlow</span>
+                        <div class="skill-level" data-level="85"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Data Analysis</span>
+                        <div class="skill-level" data-level="90"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Neural Networks</span>
+                        <div class="skill-level" data-level="80"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 data-aos="fade-down">Get In Touch</h2>
+        <div class="contact-content" data-aos="fade-up">
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" required placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>shivp8601@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>437-830-8144</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Halifax, NS, B4A 3X2, Canada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">SP</div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://linkedin.com/in/shivam-patel-963803232/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Shivam13602" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:shivp8601@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 Shivam Patel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
