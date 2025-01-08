@@ -66,6 +66,9 @@ body {
 .nav-logo {
     position: relative;
     cursor: pointer;
+    perspective: 1000px;
+    width: 50px;
+    height: 50px;
 }
 
 .logo-text {
@@ -96,6 +99,11 @@ body {
     display: flex;
     gap: 2rem;
     align-items: center;
+    list-style: none;
+}
+
+.nav-links li {
+    position: relative;
 }
 
 .nav-links a {
@@ -103,13 +111,10 @@ body {
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 500;
+    position: relative;
 }
 
-.nav-links.minimal a {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.nav-links a::after {
+.nav-links a:not(.btn-primary)::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -120,8 +125,12 @@ body {
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
+.nav-links a:not(.btn-primary):hover::after {
     width: 100%;
+}
+
+.resume-btn {
+    list-style: none;
 }
 
 .btn-primary {
@@ -1026,8 +1035,8 @@ footer {
 
 /* Add 3D Avatar Styles */
 .avatar-3d {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     position: relative;
     transform-style: preserve-3d;
     cursor: pointer;
@@ -1044,8 +1053,9 @@ footer {
     justify-content: center;
     font-weight: bold;
     font-size: 1.2em;
-    color: var(--dark-background);
+    color: var(--primary-color);
     transition: background 0.3s ease;
+    border-radius: 8px;
 }
 
 .avatar-face.front { transform: translateZ(25px); background: #64ffda; }
@@ -1057,29 +1067,39 @@ footer {
 
 /* Avatar Animations */
 @keyframes spin-x {
-    from { transform: rotateX(0); }
-    to { transform: rotateX(360deg); }
+    0% { transform: rotateX(0); }
+    100% { transform: rotateX(360deg); }
 }
 
 @keyframes spin-y {
-    from { transform: rotateY(0); }
-    to { transform: rotateY(360deg); }
+    0% { transform: rotateY(0); }
+    100% { transform: rotateY(360deg); }
 }
 
 @keyframes spin-z {
-    from { transform: rotateZ(0); }
-    to { transform: rotateZ(360deg); }
+    0% { transform: rotateZ(0); }
+    100% { transform: rotateZ(360deg); }
 }
 
 .spin-x { animation: spin-x 1s ease; }
 .spin-y { animation: spin-y 1s ease; }
 .spin-z { animation: spin-z 1s ease; }
 
+/* Hover effect for avatar */
+.avatar-3d:hover {
+    transform: scale(1.1);
+}
+
 /* Updated Navigation Styles */
 .nav-links {
     display: flex;
     gap: 2rem;
     align-items: center;
+    list-style: none;
+}
+
+.nav-links li {
+    position: relative;
 }
 
 .nav-links a {
@@ -1087,13 +1107,10 @@ footer {
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 500;
+    position: relative;
 }
 
-.nav-links.minimal a {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.nav-links a::after {
+.nav-links a:not(.btn-primary)::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -1104,8 +1121,12 @@ footer {
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
+.nav-links a:not(.btn-primary):hover::after {
     width: 100%;
+}
+
+.resume-btn {
+    list-style: none;
 }
 
 .nav-links a {

@@ -58,45 +58,48 @@ document.querySelectorAll('.project-card').forEach(card => {
 });
 
 // Avatar Animation
-const avatar = document.querySelector('.avatar-3d');
-const colors = [
-    ['#64ffda', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#D4A5A5'],  // Default
-    ['#FF6B6B', '#FFA07A', '#FFD700', '#FFA500', '#FF8C00', '#FF4500'],  // Warm
-    ['#4ECDC4', '#00CED1', '#20B2AA', '#48D1CC', '#40E0D0', '#7FFFD4'],  // Cool
-    ['#9B59B6', '#8E44AD', '#9B59B6', '#8E44AD', '#9B59B6', '#8E44AD'],  // Purple
-    ['#2ECC71', '#27AE60', '#2ECC71', '#27AE60', '#2ECC71', '#27AE60']   // Green
-];
+document.addEventListener('DOMContentLoaded', () => {
+    const avatar = document.querySelector('.avatar-3d');
+    const colors = [
+        ['#64ffda', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#D4A5A5'],  // Default
+        ['#FF6B6B', '#FFA07A', '#FFD700', '#FFA500', '#FF8C00', '#FF4500'],  // Warm
+        ['#4ECDC4', '#00CED1', '#20B2AA', '#48D1CC', '#40E0D0', '#7FFFD4'],  // Cool
+        ['#9B59B6', '#8E44AD', '#9B59B6', '#8E44AD', '#9B59B6', '#8E44AD'],  // Purple
+        ['#2ECC71', '#27AE60', '#2ECC71', '#27AE60', '#2ECC71', '#27AE60']   // Green
+    ];
 
-let currentColorScheme = 0;
-const animations = ['spin-x', 'spin-y', 'spin-z'];
-let lastAnimation = '';
+    let currentColorScheme = 0;
+    const animations = ['spin-x', 'spin-y', 'spin-z'];
+    let lastAnimation = '';
 
-avatar.addEventListener('click', () => {
-    // Remove previous animation class
-    animations.forEach(anim => avatar.classList.remove(anim));
-    
-    // Select new random animation (different from last one)
-    let newAnimation;
-    do {
-        newAnimation = animations[Math.floor(Math.random() * animations.length)];
-    } while (newAnimation === lastAnimation);
-    
-    lastAnimation = newAnimation;
-    
-    // Apply new animation
-    avatar.classList.add(newAnimation);
-    
-    // Change color scheme
-    currentColorScheme = (currentColorScheme + 1) % colors.length;
-    const faces = document.querySelectorAll('.avatar-face');
-    faces.forEach((face, index) => {
-        face.style.background = colors[currentColorScheme][index];
+    // Click animation
+    avatar.addEventListener('click', () => {
+        // Remove previous animation class
+        animations.forEach(anim => avatar.classList.remove(anim));
+        
+        // Select new random animation (different from last one)
+        let newAnimation;
+        do {
+            newAnimation = animations[Math.floor(Math.random() * animations.length)];
+        } while (newAnimation === lastAnimation);
+        
+        lastAnimation = newAnimation;
+        
+        // Apply new animation
+        avatar.classList.add(newAnimation);
+        
+        // Change color scheme
+        currentColorScheme = (currentColorScheme + 1) % colors.length;
+        const faces = document.querySelectorAll('.avatar-face');
+        faces.forEach((face, index) => {
+            face.style.background = colors[currentColorScheme][index];
+        });
+        
+        // Remove animation class after it completes
+        setTimeout(() => {
+            avatar.classList.remove(newAnimation);
+        }, 1000);
     });
-    
-    // Remove animation class after it completes
-    setTimeout(() => {
-        avatar.classList.remove(newAnimation);
-    }, 1000);
 });
 
 // Navigation frame timing
